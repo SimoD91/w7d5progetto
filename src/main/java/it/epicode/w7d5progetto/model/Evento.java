@@ -22,7 +22,7 @@ public class Evento {
     private int numeroPostiDisponibili;
 
     @ManyToMany
-    @JoinColumn(name = "utente_id")
+    @JoinTable(name = "utenti_lista")
     private List<Utente> utenti;
 
     public Evento(String titolo, String descrizione, Date data, String luogo, int numeroPostiDisponibili) {
@@ -33,7 +33,9 @@ public class Evento {
         this.numeroPostiDisponibili = numeroPostiDisponibili;
         this.utenti = new ArrayList<>();
     }
-
     public Evento(){
+    }
+    public void addUtente(Utente utente){
+        utenti.add(utente);
     }
 }

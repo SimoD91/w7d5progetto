@@ -30,8 +30,9 @@ public class SecurityChain {
         httpSecurity.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/auth/**").permitAll());
-        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/autori/**").permitAll());
-        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/utenti/**").hasAnyAuthority(Role.ADMIN.name(), Role.USER.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/utenti/**").hasAnyAuthority(Role.ORGANIZZATORE.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/eventi/**").hasAnyAuthority(Role.ORGANIZZATORE.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/eventi/modifylist/**").hasAnyAuthority(Role.USER.name()));
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/**").denyAll());
 
 
