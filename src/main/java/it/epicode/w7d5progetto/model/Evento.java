@@ -32,6 +32,7 @@ public class Evento {
         this.luogo = luogo;
         this.numeroPostiDisponibili = numeroPostiDisponibili;
         this.utenti = new ArrayList<>();
+
     }
     public Evento(){
     }
